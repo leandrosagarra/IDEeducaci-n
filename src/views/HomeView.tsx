@@ -18,40 +18,40 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
   return (
     <div className="space-y-16 sm:space-y-24">
       {/* 4. HERO PRINCIPAL */}
-      <section className="relative overflow-hidden bg-stone-900 text-white min-h-[580px] lg:min-h-[660px] flex items-center shadow-xl">
-        {/* Background Image: Foto real adjunta de la fachada del Instituto de Enseñanza sin oscurecer */}
+      <section className="relative overflow-hidden bg-stone-900 text-white min-h-[560px] lg:min-h-[640px] flex items-center shadow-xl">
+        {/* Background Image: Foto real de la fachada del Instituto de Enseñanza */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/ide.jpg"
-            alt="Fachada del Instituto de Enseñanza La Plata"
-            className="w-full h-full object-cover object-[center_30%] sm:object-[center_35%]"
+            src="/images/ide.jpg?v=upload"
+            alt="Instituto de Enseñanza La Plata"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Mínimo tinte solo para dar profundidad, permitiendo que la foto real y sus colores luzcan en su esplendor */}
-          <div className="absolute inset-0 bg-stone-950/20" />
+          {/* Overlay suave y luminoso que permite apreciar con claridad la fachada del colegio y mantiene legibilidad impecable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/45 to-transparent sm:from-stone-950/75 sm:via-stone-900/35 sm:to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-stone-950/60 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 w-full flex items-center">
-          {/* Tarjeta flotante con efecto cristal para no tapar la fachada del edificio */}
-          <div className="max-w-2xl bg-stone-950/80 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/80 border border-white/25 text-stone-200 text-xs sm:text-sm font-medium tracking-wide">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/70 backdrop-blur-xs border border-white/20 text-stone-200 text-xs sm:text-sm font-medium tracking-wide">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>Admisiones y Matrículas Abiertas • Ciclo Lectivo 2025</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
               {settings.instituteName}
             </h1>
 
-            <p className="text-base sm:text-lg text-stone-200 font-normal leading-relaxed">
+            <p className="text-lg sm:text-xl text-stone-100 font-normal leading-relaxed max-w-2xl drop-shadow-xs">
               Escuela Laica, Mixta y de Doble Jornada con más de 25 años educando con afecto y rigor académico en la ciudad de La Plata.
             </p>
 
             {/* CTAs con colores neutros y pasteles */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4">
               <button
                 onClick={() => onNavigate('propuesta')}
                 id="hero-btn-propuesta"
-                className="px-5 py-3 rounded-xl bg-[#D6E4F0] hover:bg-[#C5D8E8] text-[#1E3A5F] font-bold text-sm tracking-wide border border-[#B5CDE0] shadow-md shadow-stone-950/20 transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl bg-[#D6E4F0] hover:bg-[#C5D8E8] text-[#1E3A5F] font-bold text-sm tracking-wide border border-[#B5CDE0] shadow-md shadow-stone-950/20 transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
               >
                 <span>CONOCÉ NUESTRA PROPUESTA</span>
                 <ArrowRight className="w-4 h-4 text-[#1E3A5F]" />
@@ -60,7 +60,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
               <button
                 onClick={onOpenEnrollment}
                 id="hero-btn-inscripciones"
-                className="px-5 py-3 rounded-xl bg-[#FDEBD0] hover:bg-[#F9DEBC] text-[#7C2D12] font-bold text-sm tracking-wide border border-[#F6CE9B] shadow-md shadow-stone-950/20 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-[#FDEBD0] hover:bg-[#F9DEBC] text-[#7C2D12] font-bold text-sm tracking-wide border border-[#F6CE9B] shadow-md shadow-stone-950/20 transition-all transform hover:-translate-y-0.5 cursor-pointer"
               >
                 INSCRIPCIONES 2025
               </button>
@@ -68,25 +68,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
               <button
                 onClick={() => onNavigate('contacto')}
                 id="hero-btn-contacto"
-                className="px-5 py-3 rounded-xl bg-[#F5F2EB]/95 hover:bg-[#EAE4D7] text-[#292524] font-bold text-sm tracking-wide border border-[#DDD5C5] shadow-md shadow-stone-950/20 backdrop-blur-xs transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-[#F5F2EB]/95 hover:bg-[#EAE4D7] text-[#292524] font-bold text-sm tracking-wide border border-[#DDD5C5] shadow-md shadow-stone-950/20 backdrop-blur-xs transition-all transform hover:-translate-y-0.5 cursor-pointer"
               >
                 CONTACTO Y SEDES
               </button>
             </div>
 
             {/* Micro badges */}
-            <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-stone-200 border-t border-white/15">
+            <div className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-stone-200 border-t border-white/15">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span>Nivel Inicial, Primario y Secundario</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>Doble Jornada Optativa</span>
+                <span>Doble Jornada Optativa con Talleres</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>Inglés, Robótica y Deportes</span>
+                <span>Robótica, Inglés Intensivo y Deportes</span>
               </div>
             </div>
           </div>

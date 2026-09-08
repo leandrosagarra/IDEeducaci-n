@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4 text-[12px] sm:text-[13px]">
             <span className="flex items-center gap-1.5 font-medium text-amber-300">
               <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              Ciclo Lectivo 2026: Inscripciones Abiertas
+              Ciclo Lectivo 2025: Inscripciones Abiertas
             </span>
             <span className="hidden sm:inline text-stone-600">|</span>
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-stone-300">
@@ -159,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({
               id="header-cta-inscripciones-btn"
               className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-800 to-sky-900 hover:from-sky-700 hover:to-sky-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm hover:shadow transition-all active:scale-95 cursor-pointer whitespace-nowrap border border-sky-950/20"
             >
-              INSCRIPCIONES 2026
+              INSCRIPCIONES 2025
             </button>
 
             {/* Mobile menu toggle */}
