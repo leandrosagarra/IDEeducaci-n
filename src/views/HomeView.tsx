@@ -24,11 +24,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
           <img
             src="/images/ide.jpg?v=upload"
             alt="Instituto de Enseñanza La Plata"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center brightness-90"
           />
-          {/* Overlay suave y luminoso que permite apreciar con claridad la fachada del colegio y mantiene legibilidad impecable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/45 to-transparent sm:from-stone-950/75 sm:via-stone-900/35 sm:to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-stone-950/60 to-transparent" />
+          {/* Overlay suave que oscurece sutilmente la zona del texto para dar legibilidad, dejando el fondo bien visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/70 via-stone-950/35 to-stone-950/10" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-stone-950/40 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
