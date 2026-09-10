@@ -97,7 +97,7 @@ export interface NewsArticle {
   slug: string;
   excerpt: string;
   content: string;
-  category: 'Institucional' | 'Actos y Eventos' | string;
+  category: 'Institucional' | 'Eventos y Actos' | 'Actos y Eventos' | string;
   imageUrl: string;
   galleryImages?: string[];
   publishedAt: string;

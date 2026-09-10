@@ -13,7 +13,7 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
 
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('TODAS');
+  const [selectedCategory, setSelectedCategory] = useState<'Institucional' | 'Eventos y Actos'>('Institucional');
   const [copiedLink, setCopiedLink] = useState(false);
 
   useEffect(() => {
@@ -21,22 +21,32 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
       const match = news.find(n => n.id === initialArticleId);
       if (match) {
         setSelectedArticle(match);
+        const isEvent = match.category.toLowerCase().includes('evento') || match.category.toLowerCase().includes('acto');
+        setSelectedCategory(isEvent ? 'Eventos y Actos' : 'Institucional');
       }
     }
   }, [initialArticleId, news]);
 
-  const categories = ['TODAS', 'Institucional', 'Actos y Eventos'];
+  const categories: Array<'Institucional' | 'Eventos y Actos'> = ['Institucional', 'Eventos y Actos'];
+
+  const getNormalizedCategory = (cat: string): 'Institucional' | 'Eventos y Actos' => {
+    const c = (cat || '').toLowerCase();
+    if (c.includes('evento') || c.includes('acto')) {
+      return 'Eventos y Actos';
+    }
+    return 'Institucional';
+  };
 
   const filteredNews = news.filter(item => {
     if (item.status !== 'PUBLICADO') return false;
-    if (item.category !== 'Institucional' && item.category !== 'Actos y Eventos') return false;
-    const matchesCat = selectedCategory === 'TODAS' || item.category === selectedCategory;
+    const itemCat = getNormalizedCategory(item.category);
+    if (itemCat !== selectedCategory) return false;
     const matchesSearch =
       !searchQuery ||
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCat && matchesSearch;
+    return matchesSearch;
   });
 
   const handleCopyLink = () => {
@@ -79,7 +89,7 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
           <div className="space-y-3">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="bg-amber-100/70 text-amber-900 text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wide">
-                {selectedArticle.category}
+                {getNormalizedCategory(selectedArticle.category)}
               </span>
               <span className="text-xs text-stone-500 font-medium flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
@@ -212,8 +222,9 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
             {categories.map(cat => (
               <button
                 key={cat}
+                id={`tab-category-${cat.toLowerCase().replace(/\s+/g, '-')}`}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   selectedCategory === cat
                     ? 'bg-amber-800 text-white shadow-xs'
                     : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
@@ -258,7 +269,7 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <span className="absolute top-3 left-3 bg-stone-900/80 text-white text-[11px] font-bold px-2.5 py-1 rounded-md">
-                    {item.category}
+                    {getNormalizedCategory(item.category)}
                   </span>
                 </div>
 

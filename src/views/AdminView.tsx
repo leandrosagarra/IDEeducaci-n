@@ -972,10 +972,7 @@ export const AdminView: React.FC<AdminViewProps> = ({ onReturnToSite }) => {
                         className="w-full bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-xs sm:text-sm"
                       >
                         <option value="Institucional">Institucional</option>
-                        <option value="Pedagógico">Pedagógico</option>
-                        <option value="Comunidad">Comunidad</option>
-                        <option value="Inscripciones">Inscripciones</option>
-                        <option value="Actos y Eventos">Actos y Eventos</option>
+                        <option value="Eventos y Actos">Eventos y Actos</option>
                       </select>
                     </div>
                   </div>

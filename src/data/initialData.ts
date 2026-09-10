@@ -332,7 +332,7 @@ export const initialData: InstituteData = {
       slug: "actividades-patio-nivel-inicial",
       excerpt: "Los más pequeños disfrutaron de juegos recreativos y talleres plásticos en los patios de la Sede Jardín.",
       content: "La Sede Nivel Inicial de Calle 68 cuenta con patios seguros y diseñados para la motricidad infantil, donde niños y niñas comparten actividades al aire libre guiados por sus docentes.",
-      category: "Actos y Eventos",
+      category: "Eventos y Actos",
       imageUrl: "/images/jardin-696x504.jpg",
       publishedAt: "2026-02-18",
       author: "Prof. Natalia García",

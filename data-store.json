@@ -470,7 +470,7 @@
       "slug": "inscripciones-abiertas-ciclo-lectivo",
       "excerpt": "Conocé los pasos, requisitos y documentación requerida para Nivel Inicial (Diegep 8084), Primario (Diegep 3466) y Secundario (Diegep 7811).",
       "content": "Informamos a las familias interesadas que se encuentra habilitado el periodo de admisión y reserva de vacantes para los tres niveles educativos del Instituto de Enseñanza en La Plata.",
-      "category": "Pedagógico",
+      "category": "Institucional",
       "imageUrl": "/images/primario-626x626.jpg",
       "publishedAt": "2026-02-28",
       "author": "Secretaría de Admisiones",
@@ -490,7 +490,7 @@
       "slug": "actividades-patio-nivel-inicial",
       "excerpt": "Los más pequeños disfrutaron de juegos recreativos y talleres plásticos en los patios de la Sede Jardín.",
       "content": "La Sede Nivel Inicial de Calle 68 cuenta con patios seguros y diseñados para la motricidad infantil, donde niños y niñas comparten actividades al aire libre guiados por sus docentes.",
-      "category": "Eventos",
+      "category": "Eventos y Actos",
       "imageUrl": "/images/jardin-696x504.jpg",
       "publishedAt": "2026-02-18",
       "author": "Prof. Natalia García",
@@ -510,7 +510,7 @@
       "slug": "clases-proyectos-sede-secundario",
       "excerpt": "Estudiantes de Ciencias Sociales y Economía y Administración comenzaron sus proyectos anuales en Calle 68 nº 970.",
       "content": "Con aulas preparadas para el trabajo colaborativo e investigación, los alumnos de Secundaria profundizan en contenidos preuniversitarios bajo la dirección de la Prof. Roxana Petruccelli.",
-      "category": "Comunidad",
+      "category": "Institucional",
       "imageUrl": "/images/secundario-622x544.jpg",
       "publishedAt": "2026-02-10",
       "author": "Dirección Nivel Secundario",
@@ -1043,7 +1043,7 @@
     }
   ],
   "stats": {
-    "siteVisits": 14297,
+    "siteVisits": 14299,
     "mostVisitedOffer": "Nivel Secundario Orientado"
   }
 }
