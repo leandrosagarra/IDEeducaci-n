@@ -223,9 +223,9 @@ export const InscripcionesView: React.FC<InscripcionesViewProps> = ({ isOpen, on
                       onChange={(e) => setForm({ ...form, shiftPreference: e.target.value })}
                       className="w-full bg-stone-50 border border-stone-200 focus:bg-white focus:border-amber-600 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm outline-none cursor-pointer"
                     >
-                      <option value="Mañana (07:45 a 12:45 hs)">Mañana (07:45 a 12:45 hs)</option>
-                      <option value="Tarde (13:00 a 17:30 hs)">Tarde (13:00 a 17:30 hs)</option>
-                      <option value="Jornada Completa / Doble (07:45 a 16:30 hs)">Jornada Completa / Doble con Talleres (07:45 a 16:30 hs)</option>
+                      <option value="Doble Jornada con Talleres (07:45 a 15:45 hs)">Doble Jornada con Talleres (07:45 a 15:45 hs)</option>
+                      <option value="Turno Mañana (Secundario 07:30 a 13:10 hs)">Turno Mañana (Secundario 07:30 a 13:10 hs)</option>
+                      <option value="A coordinar con Dirección">A coordinar con Dirección</option>
                     </select>
                   </div>
                 </div>

@@ -121,43 +121,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
         </div>
       </div>
 
-      {/* 5. COMUNIDAD EDUCATIVA (Sin foto de fondo y con diseño limpio y ameno) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#FAF7F0] rounded-3xl border border-[#E5DEC9] p-8 sm:p-12 lg:p-14 shadow-sm space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-900 text-xs font-bold uppercase tracking-wider border border-blue-200/80">
-            <Users className="w-4 h-4 text-blue-700" />
-            <span>Comunidad Educativa</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-slate-900">
-            Una comunidad que educa con diálogo, solidez y vocación
-          </h2>
-
-          <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-normal max-w-4xl">
-            {pages.institucional?.content ||
-              'Desde nuestra fundación en la ciudad de La Plata, el Instituto de Enseñanza promueve una educación transformadora sustentada en valores, el pensamiento crítico, la innovación pedagógica y un acompañamiento cercano y constante entre la familia y la escuela.'}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            <button
-              onClick={() => onNavigate('institucional')}
-              id="home-btn-conocer-historia"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-blue-900/20 transition-all cursor-pointer"
-            >
-              <span>CONOCER NUESTRA HISTORIA</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => onNavigate('contacto')}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#EAE2D2] hover:bg-[#DDD3C0] text-slate-800 font-bold text-xs sm:text-sm tracking-wide border border-[#D5C9B3] transition-colors cursor-pointer"
-            >
-              <span>VISITAR NUESTRAS SEDES</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. PROPUESTA EDUCATIVA */}
+      {/* PROPUESTA EDUCATIVA */}
       <section className="bg-[#F8F5EE] py-16 sm:py-24 border-y border-[#E5DEC9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -235,6 +199,42 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
             >
               <span>Ver todos los niveles, planes de estudio y materias</span>
               <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* COMUNIDAD EDUCATIVA */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FAF7F0] rounded-3xl border border-[#E5DEC9] p-8 sm:p-12 lg:p-14 shadow-sm space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-900 text-xs font-bold uppercase tracking-wider border border-blue-200/80">
+            <Users className="w-4 h-4 text-blue-700" />
+            <span>Comunidad Educativa</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-slate-900">
+            Una comunidad que educa con diálogo, solidez y vocación
+          </h2>
+
+          <p className="text-base sm:text-lg text-stone-700 leading-relaxed font-normal max-w-4xl">
+            {pages.institucional?.content ||
+              'Desde nuestra fundación en la ciudad de La Plata, el Instituto de Enseñanza promueve una educación transformadora sustentada en valores, el pensamiento crítico, la innovación pedagógica y un acompañamiento cercano y constante entre la familia y la escuela.'}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              onClick={() => onNavigate('institucional')}
+              id="home-btn-conocer-historia"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-blue-900/20 transition-all cursor-pointer"
+            >
+              <span>CONOCER NUESTRA HISTORIA</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onNavigate('contacto')}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#EAE2D2] hover:bg-[#DDD3C0] text-slate-800 font-bold text-xs sm:text-sm tracking-wide border border-[#D5C9B3] transition-colors cursor-pointer"
+            >
+              <span>VISITAR NUESTRAS SEDES</span>
             </button>
           </div>
         </div>

@@ -152,7 +152,7 @@ export const ContactoView: React.FC = () => {
                     Nivel Primario
                   </h3>
                   <div className="text-xs text-[#0369A1] font-semibold bg-[#E0F2FE]/90 border border-[#BAE6FD] px-2.5 py-1 rounded-md inline-block">
-                    1º a 6º Año • Doble Jornada Optativa
+                    1º a 6º Año • Doble Jornada con Talleres
                   </div>
                   <div className="space-y-1.5 text-xs text-stone-600 pt-1">
                     <div className="flex items-start gap-2">

@@ -76,7 +76,7 @@ export interface EducationalOffer {
   curriculum: { yearOrGroup: string; subjects: string[] }[];
   requirements: string[];
   duration: string;
-  modality: 'Presencial' | 'Semipresencial' | 'Doble Jornada' | 'Jornada Simple';
+  modality: 'Presencial' | 'Semipresencial' | 'Doble Jornada' | 'Jornada Simple' | 'Doble Jornada con Talleres' | 'Presencial con Talleres';
   schedules: string;
   documentationNeeded: string[];
   enrollmentInfo: string;

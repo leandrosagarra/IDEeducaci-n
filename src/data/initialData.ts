@@ -45,7 +45,7 @@ export const initialData: InstituteData = {
         phoneRaw: "02214534536",
         email: "info.jardin@instituto-ensenanza.com.ar",
         imageUrl: "/images/jardin-696x504.jpg",
-        hours: "Turno Mañana: 08:00 a 12:00 hs | Turno Tarde: 13:00 a 17:00 hs",
+        hours: "De 7:45 a 15:45 hs (con almuerzo y talleres)",
         authorities: "Directora Inicial: Natalia García",
         description: "Salas de 2 a 5 años, patio cubierto y descubierto con juegos infantiles, salas equipadas y proyectos vivenciales.",
         googleMapsUrl: "https://maps.google.com/?q=Calle+68+969,+La+Plata,+Buenos+Aires"
@@ -65,9 +65,9 @@ export const initialData: InstituteData = {
         phoneRaw: "02214535780",
         email: "info.primario@instituto-ensenanza.com.ar",
         imageUrl: "/images/primario-626x626.jpg",
-        hours: "Jornada Simple: 07:45 a 12:45 hs | Doble Jornada: 07:45 a 16:30 hs",
+        hours: "De 7:45 a 15:45 hs (con almuerzo y talleres)",
         authorities: "Directora Primario: Cabo Vanesa | Secretaria: Ana Lucía De Bairros",
-        description: "Doble Jornada optativa, comedor escolar, talleres pedagógicos, inglés intensivo, biblioteca, computación y deportes.",
+        description: "Doble Jornada con Talleres, comedor escolar, talleres pedagógicos, inglés intensivo, biblioteca, computación y deportes.",
         googleMapsUrl: "https://maps.google.com/?q=Calle+66+818,+La+Plata,+Buenos+Aires"
       },
       {
@@ -165,8 +165,8 @@ export const initialData: InstituteData = {
         "Entrevista inicial con el equipo directivo y docente."
       ],
       duration: "Ciclo de 4 años (Salas de 2 a 5 años)",
-      modality: "Presencial",
-      schedules: "Turno Mañana: 08:00 a 12:00 hs | Turno Tarde: 13:00 a 17:00 hs (con opción de pre-hora desde las 07:30 hs).",
+      modality: "Presencial con Talleres",
+      schedules: "De 7:45 a 15:45 hs (con almuerzo y talleres)",
       documentationNeeded: [
         "Ficha de datos personales y sanitarios completa",
         "Constancia de vacante o pase si proviene de otra institución",
@@ -217,8 +217,8 @@ export const initialData: InstituteData = {
         "Informe pedagógico de la institución de origen."
       ],
       duration: "6 años académicos",
-      modality: "Doble Jornada",
-      schedules: "Jornada Simple: 07:45 a 12:45 hs (Turno Mañana) | Doble Jornada: 07:45 a 16:30 hs (con servicio de almuerzo y talleres).",
+      modality: "Doble Jornada con Talleres",
+      schedules: "De 7:45 a 15:45 hs (con almuerzo y talleres)",
       documentationNeeded: [
         "Constancia de alumno regular o certificado de pase",
         "Ficha de matrícula definitiva",
@@ -689,7 +689,7 @@ export const initialData: InstituteData = {
     {
       id: "faq-2",
       question: "¿Cómo funciona la Doble Jornada en el Nivel Primario?",
-      answer: "La Doble Jornada en Nivel Primario complementa el turno curricular oficial con talleres pedagógicos en contra-turno de robótica, inglés intensivo, educación física y expresión artística. Contamos con comedor escolar supervisado con menú balanceado.",
+      answer: "La Doble Jornada en Nivel Primario cuenta con horario de 7:45 a 15:45 hs (con almuerzo y talleres). En el turno curricular los alumnos completan los contenidos oficiales bonaerenses, y en el contra-turno asisten a talleres pedagógicos de robótica, inglés intensivo, educación física y expresión artística. Contamos con comedor escolar supervisado con menú balanceado.",
       category: "Carreras y Niveles",
       order: 2,
       status: "PUBLICADO"
@@ -721,7 +721,7 @@ export const initialData: InstituteData = {
     {
       id: "faq-6",
       question: "¿Cuáles son los horarios de clases y de atención administrativa?",
-      answer: "Nivel Inicial: Turno Mañana de 08:00 a 12:00 hs y Turno Tarde de 13:00 a 17:00 hs. Nivel Primario: 07:45 a 12:45 hs (Simple) o hasta 16:30 hs (Doble Jornada). Nivel Secundario: 07:30 a 13:10 hs más contra-turnos de educación física. La Secretaría y Administración atienden de lunes a viernes de 07:30 a 17:30 hs.",
+      answer: "Nivel Inicial: De 7:45 a 15:45 hs (con almuerzo y talleres). Nivel Primario: De 7:45 a 15:45 hs (con almuerzo y talleres). Nivel Secundario: Turno Mañana de 07:30 a 13:10 hs más contra-turnos de educación física. La Secretaría y Administración atienden de lunes a viernes de 07:30 a 17:30 hs.",
       category: "Horarios",
       order: 6,
       status: "PUBLICADO"
