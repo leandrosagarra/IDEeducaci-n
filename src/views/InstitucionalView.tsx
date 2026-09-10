@@ -108,17 +108,27 @@ export const InstitucionalView: React.FC<InstitucionalViewProps> = ({
           </div>
 
           <div className="lg:col-span-5 space-y-4">
-            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] bg-stone-100">
-              <img
-                src="/images/img-20210601-wa0032-1-1024x768.jpg"
-                alt="Comunidad escolar en Instituto de Enseñanza"
-                className="w-full h-full object-cover"
-              />
+            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-stone-100 flex flex-col items-center">
+              <div className="w-full aspect-[4/5] overflow-hidden bg-stone-200">
+                <img
+                  src="/images/monsenor.jpg"
+                  alt="Monseñor Roberto P. Lodigiani"
+                  className="w-full h-full object-cover object-top hover:scale-102 transition-transform duration-300"
+                />
+              </div>
+              <div className="w-full p-4 bg-white border-t border-stone-200 text-center space-y-1">
+                <div className="text-sm font-extrabold text-slate-900">
+                  Monseñor Roberto P. Lodigiani
+                </div>
+                <div className="text-[11px] text-stone-500 font-medium">
+                  En su memoria y homenaje fue fundado el Instituto de Enseñanza en Septiembre de 1992
+                </div>
+              </div>
             </div>
             <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-stone-800 space-y-2">
               <div className="font-bold uppercase tracking-wide text-amber-900">Proyecto Educativo Institucional (PEI)</div>
               <p className="leading-relaxed text-stone-700">
-                Una escuela laica, mixta y con opción de doble jornada. Articulamos conocimientos académicos rigurosos con pensamiento crítico, tecnologías, idiomas, deportes y empatía social.
+                Una escuela laica, mixta y con doble jornada con talleres. Articulamos conocimientos académicos rigurosos con pensamiento crítico, tecnologías, idiomas, deportes y empatía social.
               </p>
             </div>
           </div>

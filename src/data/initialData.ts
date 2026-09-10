@@ -188,11 +188,11 @@ export const initialData: InstituteData = {
     },
     {
       id: "nivel-primario",
-      title: "Nivel Primario con Doble Jornada Optativa",
+      title: "Nivel Primario con Doble Jornada",
       level: "Nivel Primario",
       slug: "nivel-primario",
       shortDescription: "Formación académica sólida de 1º a 6º año, con talleres de profundización pedagógica, robótica y deportes.",
-      fullDescription: "El Nivel Primario consolida las competencias básicas de lectoescritura comprensiva, cálculo y resolución de problemas, método científico y valores cívicos. Contamos con modalidad de Doble Jornada optativa con talleres extracurriculares en turno contra-turno, comedor escolar con menú supervisado por nutricionistas, y proyecto intensivo de idioma inglés.",
+      fullDescription: "El Nivel Primario consolida las competencias básicas de lectoescritura comprensiva, cálculo y resolución de problemas, método científico y valores cívicos. Contamos con modalidad de Doble Jornada con talleres pedagógicos en contra-turno, comedor escolar con menú supervisado por nutricionistas, y proyecto intensivo de idioma inglés.",
       objectives: [
         "Garantizar la alfabetización integral y la comprensión crítica de textos de variada complejidad.",
         "Promover el razonamiento analítico, la curiosidad científica y el trabajo en equipo.",
@@ -293,53 +293,6 @@ export const initialData: InstituteData = {
       diegep: "Diegep 7811",
       address: "Calle 68 nº 970 entre 14 y 15, (1900) La Plata",
       phone: "451.5205"
-    },
-    {
-      id: "talleres-extracurriculares",
-      title: "Talleres y Formación Extracurricular",
-      level: "Talleres y Extracurricular",
-      slug: "talleres-extracurriculares",
-      shortDescription: "Robótica y programación, idioma inglés intensivo, escuela de deportes y artes.",
-      fullDescription: "Nuestra propuesta extracurricular enriquece el trayecto escolar formal brindando a los estudiantes espacios lúdicos y técnicos para explorar sus talentos en tecnología, idiomas extranjeros, prácticas deportivas y expresiones estéticas.",
-      objectives: [
-        "Promover la creatividad y el pensamiento computacional con kits de robótica y programación de videojuegos.",
-        "Certificar competencias internacionales de inglés (Cambridge Assessment English).",
-        "Incentivar hábitos saludables, trabajo en equipo y juego limpio a través de ligas deportivas escolares.",
-        "Desarrollar la sensibilidad artística mediante ensambles corales, plástica y teatro escolar."
-      ],
-      curriculum: [
-        {
-          yearOrGroup: "Área Tecnológica",
-          subjects: ["Club de Robótica y Sensores", "Programación con Scratch y Python", "Modelado e Impresión 3D"]
-        },
-        {
-          yearOrGroup: "Área Idiomas y Expresión",
-          subjects: ["Inglés Preparatorio Exámenes Internacionales", "Teatro y Oratoria", "Coro e Instrumentos Musicales"]
-        },
-        {
-          yearOrGroup: "Área Deportes",
-          subjects: ["Iniciación Deportiva", "Básquetbol", "Voleibol Escolar", "Fútbol Mixto", "Gimnasia Artística"]
-        }
-      ],
-      requirements: [
-        "Ficha médica de aptitud física actualizada para actividades deportivas.",
-        "Inscripción en Secretaría previa al inicio de cada cuatrimestre."
-      ],
-      duration: "Talleres anuales y cuatrimestrales",
-      modality: "Presencial",
-      schedules: "Lunes a Viernes de 16:45 a 19:00 hs y Sábados por la mañana.",
-      documentationNeeded: ["Ficha de inscripción a talleres", "Apto médico deportivo"],
-      enrollmentInfo: "Consultá vacantes disponibles y aranceles bonificados para alumnos de la institución en Secretaría.",
-      downloadableFiles: [
-        { name: "Cronograma de Talleres y Aranceles 2026.pdf", url: "#", size: "750 KB" }
-      ],
-      imageUrl: "/images/talleres-extracurriculares.jpg",
-      status: "PUBLICADO",
-      featured: false,
-      order: 4,
-      branchName: "Sedes Primario y Secundario",
-      address: "Calle 66 nº 818 / Calle 68 nº 970",
-      phone: "453.5780"
     }
   ],
   news: [
@@ -360,11 +313,11 @@ export const initialData: InstituteData = {
     },
     {
       id: "noticia-2",
-      title: "Inscripciones Abiertas Ciclo Lectivo 2026 en las 3 Sedes",
+      title: "Inscripciones Abiertas Ciclo Lectivo 2027 en las 3 Sedes",
       slug: "inscripciones-abiertas-ciclo-lectivo",
       excerpt: "Conocé los pasos, requisitos y documentación requerida para Nivel Inicial (Diegep 8084), Primario (Diegep 3466) y Secundario (Diegep 7811).",
       content: "Informamos a las familias interesadas que se encuentra habilitado el periodo de admisión y reserva de vacantes para los tres niveles educativos del Instituto de Enseñanza en La Plata.",
-      category: "Pedagógico",
+      category: "Institucional",
       imageUrl: "/images/primario-626x626.jpg",
       publishedAt: "2026-02-28",
       author: "Secretaría de Admisiones",
@@ -379,7 +332,7 @@ export const initialData: InstituteData = {
       slug: "actividades-patio-nivel-inicial",
       excerpt: "Los más pequeños disfrutaron de juegos recreativos y talleres plásticos en los patios de la Sede Jardín.",
       content: "La Sede Nivel Inicial de Calle 68 cuenta con patios seguros y diseñados para la motricidad infantil, donde niños y niñas comparten actividades al aire libre guiados por sus docentes.",
-      category: "Eventos",
+      category: "Actos y Eventos",
       imageUrl: "/images/jardin-696x504.jpg",
       publishedAt: "2026-02-18",
       author: "Prof. Natalia García",
@@ -394,7 +347,7 @@ export const initialData: InstituteData = {
       slug: "clases-proyectos-sede-secundario",
       excerpt: "Estudiantes de Ciencias Sociales y Economía y Administración comenzaron sus proyectos anuales en Calle 68 nº 970.",
       content: "Con aulas preparadas para el trabajo colaborativo e investigación, los alumnos de Secundaria profundizan en contenidos preuniversitarios bajo la dirección de la Prof. Roxana Petruccelli.",
-      category: "Comunidad",
+      category: "Institucional",
       imageUrl: "/images/secundario-622x544.jpg",
       publishedAt: "2026-02-10",
       author: "Dirección Nivel Secundario",
@@ -736,7 +689,7 @@ export const initialData: InstituteData = {
     {
       id: "faq-2",
       question: "¿Cómo funciona la Doble Jornada en el Nivel Primario?",
-      answer: "La Doble Jornada es optativa en Nivel Primario. En el turno curricular los alumnos completan los contenidos oficiales bonaerenses, y en el contra-turno asisten a talleres pedagógicos de robótica, inglés intensivo, educación física y expresión artística. Contamos con comedor escolar supervisado con menú balanceado.",
+      answer: "La Doble Jornada en Nivel Primario complementa el turno curricular oficial con talleres pedagógicos en contra-turno de robótica, inglés intensivo, educación física y expresión artística. Contamos con comedor escolar supervisado con menú balanceado.",
       category: "Carreras y Niveles",
       order: 2,
       status: "PUBLICADO"

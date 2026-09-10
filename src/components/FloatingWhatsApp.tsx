@@ -13,7 +13,7 @@ export const FloatingWhatsApp: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-40">
+    <div className="fixed bottom-5 right-5 z-40">
       <button
         onClick={handleOpenWhatsApp}
         id="floating-whatsapp-btn"

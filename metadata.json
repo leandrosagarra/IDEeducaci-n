@@ -1,6 +1,6 @@
 {
   "name": "Instituto de Enseñanza",
-  "description": "Sitio institucional oficial del Instituto de Enseñanza en La Plata con propuesta educativa, inscripciones, vida estudiantil, panel de gestión y asistente virtual inteligente.",
+  "description": "Sitio institucional oficial del Instituto de Enseñanza en La Plata con propuesta pedagógica para Nivel Inicial, Primario y Secundario, inscripciones 2027 y novedades.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

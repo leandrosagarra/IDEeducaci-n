@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenEnrollment }) 
                 id="footer-inscribite-btn"
                 className="inline-flex items-center gap-2 text-xs font-bold text-white bg-amber-700 hover:bg-amber-600 px-4 py-2.5 rounded-xl shadow transition-colors cursor-pointer"
               >
-                <span>Solicitar Vacante 2026</span>
+                <span>Inscripciones 2027</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenEnrollment }) 
                   className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-xs sm:text-sm text-left"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
-                  Nivel Primario (Doble Jornada optativa)
+                  Nivel Primario (Doble Jornada con Talleres)
                 </button>
               </li>
               <li>
@@ -136,15 +136,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenEnrollment }) 
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   Secundario en Economía y Adm.
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('propuesta')}
-                  className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-xs sm:text-sm text-left"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                  Talleres de Robótica, Inglés y Deportes
                 </button>
               </li>
             </ul>

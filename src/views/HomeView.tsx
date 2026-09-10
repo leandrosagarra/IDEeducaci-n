@@ -11,7 +11,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
   const { data } = useData();
   const { settings, educationalOffers, news, events, pages } = data;
 
-  const publishedOffers = educationalOffers.filter(o => o.status === 'PUBLICADO');
+  const publishedOffers = educationalOffers.filter(
+    o => o.status === 'PUBLICADO' && o.id !== 'talleres-extracurriculares' && o.level !== 'Talleres y Extracurricular'
+  );
   const featuredNews = news.filter(n => n.status === 'PUBLICADO').slice(0, 3);
   const upcomingEvents = events.slice(0, 3);
 
@@ -35,7 +37,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/70 backdrop-blur-xs border border-white/20 text-stone-200 text-xs sm:text-sm font-medium tracking-wide">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Admisiones y Matrículas Abiertas • Ciclo Lectivo 2025</span>
+              <span>Admisiones y Matrículas Abiertas • Ciclo Lectivo 2027</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
@@ -62,7 +64,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
                 id="hero-btn-inscripciones"
                 className="px-6 py-3.5 rounded-xl bg-[#FDEBD0] hover:bg-[#F9DEBC] text-[#7C2D12] font-bold text-sm tracking-wide border border-[#F6CE9B] shadow-md shadow-stone-950/20 transition-all transform hover:-translate-y-0.5 cursor-pointer"
               >
-                INSCRIPCIONES 2025
+                INSCRIPCIONES 2027
               </button>
 
               <button
@@ -82,7 +84,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>Doble Jornada Optativa con Talleres</span>
+                <span>Doble Jornada con Talleres</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
@@ -113,160 +115,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
           </div>
           <div className="space-y-1">
             <div className="text-3xl sm:text-4xl font-black text-emerald-800 tracking-tight">100%</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wide">Doble Jornada Optativa</div>
+            <div className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wide">Doble Jornada con Talleres</div>
             <div className="text-[11px] text-stone-600">Robótica, Inglés, Plástica y Deportes</div>
           </div>
         </div>
       </div>
-
-      {/* 3 SEDES HIGHLIGHT BLOCK */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100/90 border border-blue-200/80 px-3 py-1 rounded-full">
-            Nuestras 3 Sedes en La Plata
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Instalaciones Adaptadas a Cada Etapa
-          </h2>
-          <p className="text-sm text-stone-600">
-            Cada nivel cuenta con su edificio propio, directivos especializados y canales telefónicos directos.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Inicial */}
-          <div className="bg-[#FAF7F0] rounded-3xl overflow-hidden border border-[#E5DEC9] shadow-xs hover:shadow-md transition-all flex flex-col group">
-            <div className="h-48 overflow-hidden relative bg-stone-200">
-              <img
-                src="/images/jardin-696x504.jpg"
-                alt="Sede Nivel Inicial Calle 68 nº 969"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-3 left-3 bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A] text-[11px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide shadow-xs">
-                DIEGEP 8084
-              </div>
-            </div>
-            <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div className="space-y-2">
-                <h3 className="text-lg font-black text-slate-900">
-                  Nivel Inicial
-                </h3>
-                <div className="text-xs text-[#92400E] font-semibold bg-[#FEF3C7]/90 border border-[#FDE68A] px-2.5 py-1 rounded-md inline-block">
-                  Salas de 2 a 5 años (Maternal e Infantes)
-                </div>
-                <div className="space-y-1.5 text-xs text-stone-600 pt-1">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
-                    <span>Calle 68 nº 969 e/ 14 y 15 • (1900) La Plata</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-amber-700 flex-shrink-0" />
-                    <a href="tel:4534536" className="font-bold text-slate-800 hover:text-blue-700">Tel: 453.4536</a>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-3 border-t border-[#E8E0D1] flex items-center justify-between text-xs">
-                <span className="text-stone-500">Directora: <strong className="text-stone-800">Natalia García</strong></span>
-                <button
-                  onClick={() => onNavigate('propuesta')}
-                  className="text-blue-700 hover:text-blue-900 font-bold flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Ver nivel</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Primario: foto con estilo pedagógico similar a inicial y secundario */}
-          <div className="bg-[#FAF7F0] rounded-3xl overflow-hidden border border-[#E5DEC9] shadow-xs hover:shadow-md transition-all flex flex-col group">
-            <div className="h-48 overflow-hidden relative bg-stone-200">
-              <img
-                src="/images/primario-626x626.jpg"
-                alt="Alumnos de Nivel Primario en clase"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-3 left-3 bg-[#E0F2FE] text-[#0369A1] border border-[#BAE6FD] text-[11px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide shadow-xs">
-                DIEGEP 3466
-              </div>
-            </div>
-            <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div className="space-y-2">
-                <h3 className="text-lg font-black text-slate-900">
-                  Nivel Primario
-                </h3>
-                <div className="text-xs text-[#0369A1] font-semibold bg-[#E0F2FE]/90 border border-[#BAE6FD] px-2.5 py-1 rounded-md inline-block">
-                  1º a 6º Año • Doble Jornada Optativa
-                </div>
-                <div className="space-y-1.5 text-xs text-stone-600 pt-1">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-blue-700 flex-shrink-0 mt-0.5" />
-                    <span>Calle 66 nº 818 e/ 11 y 12 • (1900) La Plata</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-blue-700 flex-shrink-0" />
-                    <a href="tel:4535780" className="font-bold text-slate-800 hover:text-blue-800">Tel: 453.5780</a>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-3 border-t border-[#E8E0D1] flex items-center justify-between text-xs">
-                <span className="text-stone-500">Directora: <strong className="text-stone-800">Cabo Vanesa</strong></span>
-                <button
-                  onClick={() => onNavigate('propuesta')}
-                  className="text-blue-700 hover:text-blue-900 font-bold flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Ver nivel</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Secundario */}
-          <div className="bg-[#FAF7F0] rounded-3xl overflow-hidden border border-[#E5DEC9] shadow-xs hover:shadow-md transition-all flex flex-col group">
-            <div className="h-48 overflow-hidden relative bg-stone-200">
-              <img
-                src="/images/secundario-622x544.jpg"
-                alt="Sede Nivel Secundario Calle 68 nº 970"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-3 left-3 bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0] text-[11px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide shadow-xs">
-                DIEGEP 7811
-              </div>
-            </div>
-            <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div className="space-y-2">
-                <h3 className="text-lg font-black text-slate-900">
-                  Nivel Secundario
-                </h3>
-                <div className="text-xs text-[#065F46] font-semibold bg-[#ECFDF5]/90 border border-[#A7F3D0] px-2.5 py-1 rounded-md inline-block">
-                  Cs. Sociales • Economía y Administración
-                </div>
-                <div className="space-y-1.5 text-xs text-stone-600 pt-1">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
-                    <span>Calle 68 nº 970 e/ 14 y 15 • (1900) La Plata</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-emerald-700 flex-shrink-0" />
-                    <a href="tel:4515205" className="font-bold text-slate-800 hover:text-blue-700">Tel: 451.5205</a>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-3 border-t border-[#E8E0D1] flex items-center justify-between text-xs">
-                <span className="text-stone-500">Directora: <strong className="text-stone-800">Roxana Petruccelli</strong></span>
-                <button
-                  onClick={() => onNavigate('propuesta')}
-                  className="text-blue-700 hover:text-blue-900 font-bold flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Ver nivel</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 5. COMUNIDAD EDUCATIVA (Sin foto de fondo y con diseño limpio y ameno) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -304,39 +157,37 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
         </div>
       </section>
 
-      {/* 6. PROPUESTA EDUCATIVA & TALLERES */}
+      {/* 6. PROPUESTA EDUCATIVA */}
       <section className="bg-[#F8F5EE] py-16 sm:py-24 border-y border-[#E5DEC9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100/90 border border-blue-200/80 px-3 py-1 rounded-full">
               <BookOpen className="w-3.5 h-3.5 text-blue-700" />
-              <span>Niveles Educativos y Extracurriculares</span>
+              <span>Niveles Educativos</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Nuestra Propuesta Pedagógica
             </h2>
             <p className="text-sm sm:text-base text-stone-700">
-              Acompañamos el crecimiento de cada alumno desde la primera infancia hasta su graduación preuniversitaria, sumando talleres extracurriculares de excelencia.
+              Acompañamos el crecimiento de cada alumno desde la primera infancia hasta su graduación preuniversitaria en nuestras 3 sedes de La Plata.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {publishedOffers.map((offer) => (
               <div
                 key={offer.id}
                 className="bg-[#FAF7F0] rounded-2xl overflow-hidden shadow-xs hover:shadow-md border border-[#E5DEC9] flex flex-col transition-all duration-200 group"
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden bg-stone-200">
+                <div className="relative h-52 overflow-hidden bg-stone-200">
                   <img
                     src={offer.imageUrl}
                     alt={offer.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className={`absolute top-3 left-3 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wide shadow-xs ${
-                    offer.id === 'talleres-extracurriculares'
-                      ? 'bg-blue-700'
-                      : offer.id === 'nivel-inicial'
+                    offer.id === 'nivel-inicial'
                       ? 'bg-[#B45309]'
                       : offer.id === 'nivel-primario'
                       ? 'bg-[#0369A1]'
@@ -347,9 +198,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <h3 className="font-extrabold text-slate-900 text-lg group-hover:text-blue-900 transition-colors leading-snug">
+                    <h3 className="font-extrabold text-slate-900 text-xl group-hover:text-blue-900 transition-colors leading-snug">
                       {offer.title}
                     </h3>
                     <div className="flex items-center gap-3 text-xs text-stone-500 font-medium mt-2">
@@ -357,12 +208,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
                       <span>•</span>
                       <span className="text-blue-800 font-semibold">{offer.modality}</span>
                     </div>
-                    <p className="text-xs text-stone-600 leading-relaxed mt-3 line-clamp-3">
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mt-3 line-clamp-3">
                       {offer.shortDescription}
                     </p>
                   </div>
 
-                  <div className="pt-2 border-t border-[#E8E0D1]">
+                  <div className="pt-3 border-t border-[#E8E0D1]">
                     <button
                       onClick={() => onNavigate('propuesta', offer.id)}
                       id={`offer-card-btn-${offer.id}`}
@@ -377,71 +228,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
             ))}
           </div>
 
-          {/* TALLERES Y EXTRACURRICULARES SPOTLIGHT */}
-          <div className="bg-[#FAF7F0] rounded-3xl border border-[#E5DEC9] shadow-xs overflow-hidden p-6 sm:p-8 lg:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold uppercase tracking-wider border border-blue-200">
-                  <span>Doble Jornada y Talleres Extracurriculares</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Talleres Pedagógicos, Tecnológicos y Deportivos
-                </h3>
-                <p className="text-sm text-stone-600 leading-relaxed">
-                  Nuestros talleres extracurriculares en el contra-turno ofrecen a los alumnos un espacio estimulante y colaborativo para potenciar sus intereses en tecnología, lenguas extranjeras, prácticas deportivas y expresión artística.
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <div className="p-3 rounded-xl bg-[#F2EDE2] border border-[#DDD5C3] text-center">
-                    <div className="text-xs font-black text-blue-900">Robótica & Scratch</div>
-                    <div className="text-[11px] text-stone-600 mt-0.5">Pensamiento lógico</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-[#F2EDE2] border border-[#DDD5C3] text-center">
-                    <div className="text-xs font-black text-blue-900">Inglés Intensivo</div>
-                    <div className="text-[11px] text-stone-600 mt-0.5">Prep. Cambridge</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-[#F2EDE2] border border-[#DDD5C3] text-center">
-                    <div className="text-xs font-black text-blue-900">Escuela Deportiva</div>
-                    <div className="text-[11px] text-stone-600 mt-0.5">Básquet, Vóley, Fútbol</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-[#F2EDE2] border border-[#DDD5C3] text-center">
-                    <div className="text-xs font-black text-blue-900">Artes y Teatro</div>
-                    <div className="text-[11px] text-stone-600 mt-0.5">Música y Expresión</div>
-                  </div>
-                </div>
-                <div className="pt-3 flex flex-wrap gap-3">
-                  <button
-                    onClick={() => onNavigate('propuesta', 'talleres-extracurriculares')}
-                    className="px-5 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-bold text-xs tracking-wide shadow-sm transition-colors cursor-pointer flex items-center gap-1.5"
-                  >
-                    <span>Ver cronograma de talleres</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-                  <button
-                    onClick={onOpenEnrollment}
-                    className="px-5 py-2.5 rounded-xl bg-[#EAE2D2] hover:bg-[#DDD3C0] text-slate-900 font-bold text-xs tracking-wide border border-[#D5C9B3] transition-colors cursor-pointer"
-                  >
-                    Inscripción a talleres 2026
-                  </button>
-                </div>
-              </div>
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-md border-2 border-[#DFD6C3] bg-stone-200">
-                  <img
-                    src="/images/talleres-extracurriculares.jpg"
-                    alt="Talleres y formación extracurricular en el Instituto de Enseñanza"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center pt-2">
             <button
               onClick={() => onNavigate('propuesta')}
               className="inline-flex items-center gap-2 font-bold text-sm text-blue-800 hover:text-blue-900 hover:underline cursor-pointer"
             >
-              <span>Ver todas las carreras, planes de estudio y materias</span>
+              <span>Ver todos los niveles, planes de estudio y materias</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -623,7 +415,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
 
           <div className="relative z-10 max-w-2xl space-y-4 text-white">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-900/70 border border-white/20 text-stone-200 text-xs font-semibold uppercase tracking-wider">
-              <span>Inscripciones Abiertas • Ciclo 2025</span>
+              <span>Inscripciones Abiertas • Ciclo 2027</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
               Sumate a la comunidad del Instituto de Enseñanza
@@ -637,7 +429,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
                 id="home-cta-enroll-btn"
                 className="px-6 py-3.5 rounded-xl bg-[#FDEBD0] hover:bg-[#F9DEBC] text-[#7C2D12] font-extrabold text-sm tracking-wide border border-[#F6CE9B] shadow-md transition-colors cursor-pointer"
               >
-                SOLICITAR VACANTE ONLINE
+                INSCRIPCIONES 2027
               </button>
               <button
                 onClick={() => onNavigate('contacto')}

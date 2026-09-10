@@ -15,7 +15,7 @@ export const InscripcionesView: React.FC<InscripcionesViewProps> = ({ isOpen, on
     studentLastName: '',
     studentDni: '',
     birthDate: '',
-    levelRequested: 'Nivel Primario (Doble Jornada optativa)',
+    levelRequested: 'Nivel Primario (Doble Jornada con Talleres)',
     shiftPreference: 'Mañana',
     parentName: '',
     parentPhone: '',
@@ -48,7 +48,7 @@ export const InscripcionesView: React.FC<InscripcionesViewProps> = ({ isOpen, on
         studentLastName: '',
         studentDni: '',
         birthDate: '',
-        levelRequested: 'Nivel Primario (Doble Jornada optativa)',
+        levelRequested: 'Nivel Primario (Doble Jornada con Talleres)',
         shiftPreference: 'Mañana',
         parentName: '',
         parentPhone: '',
@@ -78,7 +78,7 @@ export const InscripcionesView: React.FC<InscripcionesViewProps> = ({ isOpen, on
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-white/10 text-xs font-bold uppercase tracking-wider text-blue-200">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>Ciclo Lectivo 2025 / 2026 • 3 Sedes en La Plata</span>
+              <span>Ciclo Lectivo 2027 • 3 Sedes en La Plata</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black tracking-tight">
               Solicitud de Preinscripción Online
@@ -203,7 +203,7 @@ export const InscripcionesView: React.FC<InscripcionesViewProps> = ({ isOpen, on
                       <option value="Nivel Inicial - Maternal y Jardín (Calle 68 nº 969 - DIEGEP 8084)">
                         Nivel Inicial (Calle 68 nº 969 - DIEGEP 8084)
                       </option>
-                      <option value="Nivel Primario - Doble Jornada optativa (Calle 66 nº 818 - DIEGEP 3466)">
+                      <option value="Nivel Primario - Doble Jornada con Talleres (Calle 66 nº 818 - DIEGEP 3466)">
                         Nivel Primario (Calle 66 nº 818 - DIEGEP 3466)
                       </option>
                       <option value="Nivel Secundario - Cs. Sociales (Calle 68 nº 970 - DIEGEP 7811)">

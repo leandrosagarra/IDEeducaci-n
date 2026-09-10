@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { DataProvider } from './context/DataContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { InstitutionalChatbot } from './components/InstitutionalChatbot';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { SearchModal } from './components/SearchModal';
 import { HomeView } from './views/HomeView';
@@ -22,21 +21,32 @@ export function AppContent() {
   const [selectedNewsId, setSelectedNewsId] = useState<string | undefined>(undefined);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  const [homeResetKey, setHomeResetKey] = useState(0);
 
   // Scroll to top on view change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentView]);
 
+  const handleResetToHome = () => {
+    setCurrentView('home');
+    setSelectedOfferLevel(undefined);
+    setSelectedNewsId(undefined);
+    setIsSearchOpen(false);
+    setIsEnrollmentOpen(false);
+    setHomeResetKey(prev => prev + 1);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+
   const handleNavigate = (view: string, level?: string, articleId?: string) => {
-    setCurrentView(view);
-    if (level) {
-      setSelectedOfferLevel(level);
+    const target = (view === 'inicio' || view === 'home') ? 'home' : view;
+    if (target === 'home' && !level && !articleId) {
+      handleResetToHome();
+      return;
     }
-    if (articleId) {
-      setSelectedNewsId(articleId);
-    }
+    setCurrentView(target);
+    setSelectedOfferLevel(level);
+    setSelectedNewsId(articleId);
   };
 
   // If in Admin panel
@@ -44,7 +54,7 @@ export function AppContent() {
     return (
       <AdminView
         onReturnToSite={() => {
-          setCurrentView('home');
+          handleResetToHome();
         }}
       />
     );
@@ -56,6 +66,7 @@ export function AppContent() {
       <Header
         currentView={currentView}
         onNavigate={handleNavigate}
+        onGoHome={handleResetToHome}
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenEnrollment={() => setIsEnrollmentOpen(true)}
       />
@@ -64,6 +75,7 @@ export function AppContent() {
       <main className="flex-1">
         {currentView === 'home' && (
           <HomeView
+            key={homeResetKey}
             onNavigate={handleNavigate}
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
           />
@@ -77,8 +89,9 @@ export function AppContent() {
 
         {currentView === 'propuesta' && (
           <PropuestaEducativaView
-            initialLevel={selectedOfferLevel}
+            initialOfferId={selectedOfferLevel}
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
+            onNavigateContact={() => handleNavigate('contacto')}
           />
         )}
 
@@ -96,7 +109,6 @@ export function AppContent() {
 
         {currentView === 'faq' && (
           <FaqView
-            onOpenChatbot={() => setIsChatbotOpen(true)}
             onNavigateContact={() => handleNavigate('contacto')}
           />
         )}
@@ -114,12 +126,6 @@ export function AppContent() {
 
       {/* Global Interactive Elements */}
       <FloatingWhatsApp />
-
-      <InstitutionalChatbot
-        isOpenExternal={isChatbotOpen}
-        onToggleExternal={(open) => setIsChatbotOpen(open)}
-        onNavigate={handleNavigate}
-      />
 
       <SearchModal
         isOpen={isSearchOpen}

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
-import { ChevronDown, Search, Bot, MessageCircle, HelpCircle } from 'lucide-react';
+import { ChevronDown, Search, MessageCircle, HelpCircle } from 'lucide-react';
 
 interface FaqViewProps {
-  onOpenChatbot?: () => void;
   onNavigateContact: () => void;
 }
 
@@ -148,7 +147,7 @@ export const FaqView: React.FC<FaqViewProps> = ({ onNavigateContact }) => {
             ¿Tenés alguna otra consulta o requerimiento puntual?
           </h3>
           <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto">
-            Utilizá nuestro Asistente Virtual Oficial con IA (disponible abajo a la derecha) para respuestas instantáneas o comunicate directamente con Secretaría.
+            Comunicate directamente con la secretaría de la sede correspondiente o escribinos por WhatsApp para recibir atención personalizada.
           </p>
           <div className="flex items-center justify-center gap-3 pt-2 flex-wrap">
             <button

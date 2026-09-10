@@ -29,10 +29,11 @@ export const PropuestaEducativaView: React.FC<PropuestaEducativaViewProps> = ({
     }
   }, [initialOfferId, educationalOffers]);
 
-  const levels = ['TODOS', 'Nivel Inicial', 'Nivel Primario', 'Nivel Secundario', 'Talleres y Extracurricular'];
+  const levels = ['TODOS', 'Nivel Inicial', 'Nivel Primario', 'Nivel Secundario'];
 
   const filteredOffers = educationalOffers.filter(o => {
     if (o.status !== 'PUBLICADO') return false;
+    if (o.id === 'talleres-extracurriculares' || o.level === 'Talleres y Extracurricular') return false;
     if (selectedLevelFilter === 'TODOS') return true;
     return o.level === selectedLevelFilter;
   });
@@ -255,8 +256,8 @@ export const PropuestaEducativaView: React.FC<PropuestaEducativaViewProps> = ({
       <section className="bg-stone-900 text-white py-16 rounded-3xl mx-4 sm:mx-6 lg:mx-8 px-6 sm:px-12 relative overflow-hidden shadow-xl border border-[#DFD6C3]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/talleres-extracurriculares.jpg"
-            alt="Talleres y propuesta pedagógica en el Instituto de Enseñanza"
+            src="/images/ide.jpg"
+            alt="Instituto de Enseñanza La Plata"
             className="w-full h-full object-cover object-center opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/90 to-blue-950/85" />
@@ -264,13 +265,13 @@ export const PropuestaEducativaView: React.FC<PropuestaEducativaViewProps> = ({
 
         <div className="relative z-10 max-w-3xl space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-blue-200 bg-blue-950/80 border border-blue-400/50 px-3 py-1 rounded-full">
-            Propuesta Académica y Extracurricular
+            Propuesta Académica
           </span>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-white">
             Nuestra Oferta Educativa
           </h1>
           <p className="text-base sm:text-xl text-stone-200 leading-relaxed font-normal">
-            Proyectos pedagógicos integrales articulados desde los 2 años hasta la finalización del nivel secundario en nuestras 3 sedes, complementados con talleres extracurriculares de excelencia.
+            Proyectos pedagógicos integrales articulados desde los 2 años hasta la finalización del nivel secundario en nuestras 3 sedes de La Plata.
           </p>
         </div>
       </section>

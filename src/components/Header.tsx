@@ -5,6 +5,7 @@ import { Menu, X, Search, GraduationCap, Phone, ShieldCheck } from 'lucide-react
 interface HeaderProps {
   currentView: string;
   onNavigate: (view: string, extraParam?: string) => void;
+  onGoHome?: () => void;
   onOpenSearch: () => void;
   onOpenEnrollment: () => void;
 }
@@ -12,6 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   currentView,
   onNavigate,
+  onGoHome,
   onOpenSearch,
   onOpenEnrollment,
 }) => {
@@ -28,8 +30,16 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleGoHomeClick = () => {
+    if (onGoHome) {
+      onGoHome();
+    } else {
+      onNavigate('home');
+    }
+  };
+
   const navItems = [
-    { id: 'inicio', label: 'INICIO' },
+    { id: 'home', label: 'INICIO' },
     { id: 'institucional', label: 'INSTITUCIONAL' },
     { id: 'propuesta', label: 'PROPUESTA EDUCATIVA' },
     { id: 'noticias', label: 'NOTICIAS' },
@@ -44,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4 text-[12px] sm:text-[13px]">
             <span className="flex items-center gap-1.5 font-medium text-amber-300">
               <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              Ciclo Lectivo 2025: Inscripciones Abiertas
+              Ciclo Lectivo 2027: Inscripciones Abiertas
             </span>
             <span className="hidden sm:inline text-stone-600">|</span>
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-stone-300">
@@ -91,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo & Institution Name */}
           <div
-            onClick={() => onNavigate('inicio')}
+            onClick={handleGoHomeClick}
             className="flex items-center gap-3 cursor-pointer group select-none"
             id="header-logo-brand"
           >
@@ -112,11 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="text-[11px] sm:text-xs font-semibold tracking-wide text-stone-600 mt-1 flex items-center gap-1.5 flex-wrap">
                 <span className="text-amber-700 font-bold">La Plata</span>
                 <span>•</span>
-                <span>Inicial (8084)</span>
-                <span>•</span>
-                <span>Primario (3466)</span>
-                <span>•</span>
-                <span>Secundario (7811)</span>
+                <span className="text-stone-500">Provincia de Buenos Aires</span>
               </div>
             </div>
           </div>
@@ -124,12 +130,20 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Desktop Nav Items */}
           <nav className="hidden xl:flex items-center gap-1" aria-label="Navegación principal">
             {navItems.map(item => {
-              const isActive = currentView === item.id;
+              const isActive = item.id === 'home'
+                ? (currentView === 'home' || currentView === 'inicio')
+                : currentView === item.id;
               return (
                 <button
                   key={item.id}
                   id={`nav-item-${item.id}`}
-                  onClick={() => onNavigate(item.id)}
+                  onClick={() => {
+                    if (item.id === 'home') {
+                      handleGoHomeClick();
+                    } else {
+                      onNavigate(item.id);
+                    }
+                  }}
                   className={`px-3 py-2 text-[13px] font-semibold tracking-wide rounded-lg transition-all cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'text-sky-900 bg-sky-50 font-bold border border-sky-100 shadow-xs'
@@ -159,7 +173,7 @@ export const Header: React.FC<HeaderProps> = ({
               id="header-cta-inscripciones-btn"
               className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-800 to-sky-900 hover:from-sky-700 hover:to-sky-800 text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm hover:shadow transition-all active:scale-95 cursor-pointer whitespace-nowrap border border-sky-950/20"
             >
-              INSCRIPCIONES 2025
+              INSCRIPCIONES 2027
             </button>
 
             {/* Mobile menu toggle */}
@@ -178,23 +192,32 @@ export const Header: React.FC<HeaderProps> = ({
         {mobileMenuOpen && (
           <div className="xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-3 pb-6 animate-in slide-in-from-top duration-200">
             <div className="flex flex-col gap-1">
-              {navItems.map(item => (
-                <button
-                  key={item.id}
-                  id={`mobile-nav-item-${item.id}`}
-                  onClick={() => {
-                    onNavigate(item.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`text-left px-3 py-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
-                    currentView === item.id
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-slate-800 hover:bg-slate-50'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map(item => {
+                const isActive = item.id === 'home'
+                  ? (currentView === 'home' || currentView === 'inicio')
+                  : currentView === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    id={`mobile-nav-item-${item.id}`}
+                    onClick={() => {
+                      if (item.id === 'home') {
+                        handleGoHomeClick();
+                      } else {
+                        onNavigate(item.id);
+                      }
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`text-left px-3 py-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
+                      isActive
+                        ? 'bg-blue-50 text-blue-700 font-bold'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
               <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
                 <button
                   onClick={() => {
@@ -202,9 +225,9 @@ export const Header: React.FC<HeaderProps> = ({
                     setMobileMenuOpen(false);
                   }}
                   id="mobile-drawer-inscripciones-btn"
-                  className="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold text-center rounded-lg shadow cursor-pointer text-sm"
+                  className="w-full py-3 bg-gradient-to-r from-sky-800 to-sky-900 hover:from-sky-700 hover:to-sky-800 text-white font-bold text-center rounded-xl shadow cursor-pointer text-sm tracking-wide"
                 >
-                  SOLICITAR INSCRIPCIÓN
+                  INSCRIPCIONES 2027
                 </button>
                 <button
                   onClick={() => {

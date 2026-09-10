@@ -25,10 +25,11 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
     }
   }, [initialArticleId, news]);
 
-  const categories = ['TODAS', 'Institucional', 'Pedagógico', 'Comunidad', 'Inscripciones', 'Actos y Eventos'];
+  const categories = ['TODAS', 'Institucional', 'Actos y Eventos'];
 
   const filteredNews = news.filter(item => {
     if (item.status !== 'PUBLICADO') return false;
+    if (item.category !== 'Institucional' && item.category !== 'Actos y Eventos') return false;
     const matchesCat = selectedCategory === 'TODAS' || item.category === selectedCategory;
     const matchesSearch =
       !searchQuery ||
