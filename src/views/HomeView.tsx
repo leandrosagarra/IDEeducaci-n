@@ -358,12 +358,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
             onClick={() => onNavigate('noticias')}
             className="inline-flex items-center gap-1.5 font-bold text-sm text-blue-800 hover:text-blue-900 cursor-pointer"
           >
-            <span>Ver todas las noticias</span>
+            <span>Ver noticias</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className={featuredNews.length === 1 ? "max-w-2xl" : "grid grid-cols-1 md:grid-cols-3 gap-6"}>
           {featuredNews.map(item => (
             <article
               key={item.id}

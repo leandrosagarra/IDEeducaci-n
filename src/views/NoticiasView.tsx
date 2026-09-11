@@ -255,7 +255,7 @@ export const NoticiasView: React.FC<NoticiasViewProps> = ({ initialArticleId }) 
             No se encontraron publicaciones con los criterios seleccionados.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={filteredNews.length === 1 ? "max-w-xl" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"}>
             {filteredNews.map(item => (
               <article
                 key={item.id}

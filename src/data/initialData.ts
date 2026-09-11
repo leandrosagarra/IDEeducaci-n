@@ -297,26 +297,11 @@ export const initialData: InstituteData = {
   ],
   news: [
     {
-      id: "noticia-1",
-      title: "Espacios de Lectura y Biblioteca en Sede Primario",
-      slug: "espacios-lectura-biblioteca-primario",
-      excerpt: "Nuevos libros y recursos didácticos se incorporaron al catálogo de biblioteca para incentivar el hábito de lectura.",
-      content: "Nuestra biblioteca en la sede de Calle 66 Nº 818 incorporó nuevo material bibliográfico, novelas juveniles y áreas de estudio silencioso para todos los cursos de Nivel Primario y Secundario.",
-      category: "Institucional",
-      imageUrl: "/images/20210601-112757-1280x720.jpg",
-      publishedAt: "2026-03-02",
-      author: "Equipo Directivo",
-      status: "PUBLICADO",
-      featured: true,
-      readTime: "3 min",
-      tags: ["Biblioteca", "Lectura", "Primaria", "Calle 66"]
-    },
-    {
       id: "noticia-2",
       title: "Inscripciones Abiertas Ciclo Lectivo 2027 en las 3 Sedes",
       slug: "inscripciones-abiertas-ciclo-lectivo",
       excerpt: "Conocé los pasos, requisitos y documentación requerida para Nivel Inicial (Diegep 8084), Primario (Diegep 3466) y Secundario (Diegep 7811).",
-      content: "Informamos a las familias interesadas que se encuentra habilitado el periodo de admisión y reserva de vacantes para los tres niveles educativos del Instituto de Enseñanza en La Plata.",
+      content: "Informamos a las familias interesadas que se encuentra habilitado el periodo de admisión y reserva de vacantes para los tres niveles educativos del Instituto de Enseñanza en La Plata.\n\nContamos con vacantes para Nivel Inicial (Salas de 2 a 5 años en Calle 68 nº 969), Nivel Primario (1º a 6º año con Doble Jornada con Talleres en Calle 66 nº 818) y Nivel Secundario (Ciclo Básico y Superior con orientaciones en Ciencias Sociales y Economía en Calle 68 nº 970).\n\nPueden solicitar una entrevista con los equipos directivos a través del formulario online de este sitio web o comunicándose con las secretarías correspondientes.",
       category: "Institucional",
       imageUrl: "/images/primario-626x626.jpg",
       publishedAt: "2026-02-28",
@@ -325,36 +310,6 @@ export const initialData: InstituteData = {
       featured: true,
       readTime: "4 min",
       tags: ["Inscripciones", "Vacantes", "Admisiones", "Tres Sedes"]
-    },
-    {
-      id: "noticia-3",
-      title: "Actividades en el Patio de Nivel Inicial (Calle 68 nº 969)",
-      slug: "actividades-patio-nivel-inicial",
-      excerpt: "Los más pequeños disfrutaron de juegos recreativos y talleres plásticos en los patios de la Sede Jardín.",
-      content: "La Sede Nivel Inicial de Calle 68 cuenta con patios seguros y diseñados para la motricidad infantil, donde niños y niñas comparten actividades al aire libre guiados por sus docentes.",
-      category: "Eventos y Actos",
-      imageUrl: "/images/jardin-696x504.jpg",
-      publishedAt: "2026-02-18",
-      author: "Prof. Natalia García",
-      status: "PUBLICADO",
-      featured: false,
-      readTime: "2 min",
-      tags: ["Nivel Inicial", "Jardín", "Diegep 8084", "Calle 68"]
-    },
-    {
-      id: "noticia-4",
-      title: "Clases y Proyectos en la Sede Nivel Secundario",
-      slug: "clases-proyectos-sede-secundario",
-      excerpt: "Estudiantes de Ciencias Sociales y Economía y Administración comenzaron sus proyectos anuales en Calle 68 nº 970.",
-      content: "Con aulas preparadas para el trabajo colaborativo e investigación, los alumnos de Secundaria profundizan en contenidos preuniversitarios bajo la dirección de la Prof. Roxana Petruccelli.",
-      category: "Institucional",
-      imageUrl: "/images/secundario-622x544.jpg",
-      publishedAt: "2026-02-10",
-      author: "Dirección Nivel Secundario",
-      status: "PUBLICADO",
-      featured: false,
-      readTime: "3 min",
-      tags: ["Secundario", "Diegep 7811", "Orientaciones", "Calle 68"]
     }
   ],
   gallery: [
