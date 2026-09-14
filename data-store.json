@@ -958,6 +958,7 @@
       "id": "usr-admin",
       "name": "Prof. Lic. Dirección General",
       "email": "admin@instituto-ensenanza.com.ar",
+      "alias": "IDEenseñanza",
       "role": "ADMINISTRADOR",
       "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&auto=format&fit=crop&q=80",
       "active": true,
@@ -983,7 +984,7 @@
     }
   ],
   "stats": {
-    "siteVisits": 14302,
+    "siteVisits": 14304,
     "mostVisitedOffer": "Nivel Secundario Orientado"
   }
 }

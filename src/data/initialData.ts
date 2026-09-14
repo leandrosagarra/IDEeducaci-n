@@ -789,6 +789,7 @@ export const initialData: InstituteData = {
       id: "usr-admin",
       name: "Prof. Lic. Dirección General",
       email: "admin@instituto-ensenanza.com.ar",
+      alias: "IDEenseñanza",
       role: "ADMINISTRADOR",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&auto=format&fit=crop&q=80",
       active: true,

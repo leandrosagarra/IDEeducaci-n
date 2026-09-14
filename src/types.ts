@@ -6,6 +6,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  alias?: string;
   role: UserRole;
   avatar?: string;
   active: boolean;
