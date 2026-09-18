@@ -1,6 +1,6 @@
 import React from 'react';
 import { useData } from '../context/DataContext';
-import { ArrowRight, BookOpen, Calendar, Award, Users, ChevronRight, CheckCircle2, Phone, MapPin } from 'lucide-react';
+import { ArrowRight, BookOpen, Award, Users, ChevronRight, CheckCircle2, Phone, FileText, Shield } from 'lucide-react';
 
 interface HomeViewProps {
   onNavigate: (view: string, param?: string) => void;
@@ -9,13 +9,12 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment }) => {
   const { data } = useData();
-  const { settings, educationalOffers, news, events, pages } = data;
+  const { settings, educationalOffers, news, pages } = data;
 
   const publishedOffers = educationalOffers.filter(
     o => o.status === 'PUBLICADO' && o.id !== 'talleres-extracurriculares' && o.level !== 'Talleres y Extracurricular'
   );
   const featuredNews = news.filter(n => n.status === 'PUBLICADO').slice(0, 3);
-  const upcomingEvents = events.slice(0, 3);
 
   return (
     <div className="space-y-16 sm:space-y-24">
@@ -240,105 +239,52 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenEnrollment
         </div>
       </section>
 
-      {/* UPCOMING EVENTS & CALENDAR PREVIEW */}
+      {/* INFORMACIÓN ACADÉMICA Y ADMINISTRATIVA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Events Left */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-800">Agenda Institucional</div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Próximos Eventos y Fechas Clave
-                </h2>
-              </div>
-              <button
-                onClick={() => onNavigate('estudiantes')}
-                className="text-xs font-bold text-blue-800 hover:underline cursor-pointer"
-              >
-                Ver calendario completo
-              </button>
-            </div>
-
-            <div className="space-y-3">
-              {upcomingEvents.map(evt => (
-                <div
-                  key={evt.id}
-                  className="p-4 rounded-2xl bg-[#FAF8F3] border border-[#DFD6C3] shadow-xs hover:shadow-md transition-shadow flex items-start gap-4"
-                >
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center min-w-[65px] flex-shrink-0">
-                    <Calendar className="w-4 h-4 text-blue-700 mx-auto mb-1" />
-                    <div className="text-xs font-bold text-blue-950">
-                      {evt.date.split('-')[2]}/{evt.date.split('-')[1]}
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100/70 text-blue-900">
-                        {evt.category}
-                      </span>
-                      {evt.time && (
-                        <span className="text-xs text-stone-500 font-medium">{evt.time}</span>
-                      )}
-                    </div>
-                    <h4 className="font-bold text-slate-900 text-sm mt-1">{evt.title}</h4>
-                    <p className="text-xs text-stone-600 mt-1 line-clamp-2">{evt.description}</p>
-                    <div className="text-[11px] text-stone-500 mt-2 flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-stone-400" />
-                      <span>{evt.location}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick family & student links Right */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-stone-900 via-slate-900 to-blue-950 text-white rounded-3xl p-8 flex flex-col justify-between shadow-xl border border-blue-900/40">
-            <div className="space-y-4">
+        <div className="bg-gradient-to-br from-stone-900 via-slate-900 to-blue-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl border border-blue-900/40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-blue-200 text-xs font-bold uppercase tracking-wider border border-white/10">
                 <Users className="w-3.5 h-3.5" />
                 <span>Espacio Estudiantes y Familias</span>
               </div>
-              <h3 className="text-2xl font-black tracking-tight leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
                 Información Académica y Administrativa
               </h3>
-              <p className="text-xs sm:text-sm text-stone-200 leading-relaxed">
-                Acceso directo a cronogramas de exámenes, reglamentos de convivencia, solicitud de certificados y trámites en nuestras 3 sedes.
+              <p className="text-xs sm:text-sm text-stone-200 leading-relaxed max-w-2xl">
+                Acceso directo a reglamentos de convivencia escolar, solicitud de certificados y trámites, y descargables oficiales en nuestras 3 sedes.
               </p>
-
-              <div className="space-y-2 pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <span className="text-xs text-stone-300">¿Consultas administrativas?</span>
                 <button
-                  onClick={() => onNavigate('estudiantes')}
-                  className="w-full text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-between text-xs sm:text-sm font-semibold cursor-pointer"
+                  onClick={() => onNavigate('contacto')}
+                  className="text-xs font-bold text-white bg-blue-700 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors cursor-pointer"
                 >
-                  <span>Cronograma de Mesas de Examen</span>
-                  <ChevronRight className="w-4 h-4 text-blue-300" />
-                </button>
-                <button
-                  onClick={() => onNavigate('estudiantes')}
-                  className="w-full text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-between text-xs sm:text-sm font-semibold cursor-pointer"
-                >
-                  <span>Reglamento Interno y Convivencia Escolar</span>
-                  <ChevronRight className="w-4 h-4 text-blue-300" />
-                </button>
-                <button
-                  onClick={() => onNavigate('estudiantes')}
-                  className="w-full text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-between text-xs sm:text-sm font-semibold cursor-pointer"
-                >
-                  <span>Ficha Médica y Descargables Oficiales</span>
-                  <ChevronRight className="w-4 h-4 text-blue-300" />
+                  Contactar Secretaría
                 </button>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-blue-900/60 mt-6 flex items-center justify-between">
-              <div className="text-xs text-stone-300">¿Consultas administrativas?</div>
+            <div className="lg:col-span-5 space-y-3">
               <button
-                onClick={() => onNavigate('contacto')}
-                className="text-xs font-bold text-white bg-blue-700 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors cursor-pointer"
+                onClick={() => onNavigate('estudiantes')}
+                className="w-full text-left p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-between text-xs sm:text-sm font-semibold cursor-pointer border border-white/10 group"
               >
-                Contactar Secretaría
+                <div className="flex items-center gap-3">
+                  <Shield className="w-4 h-4 text-blue-300 group-hover:scale-110 transition-transform" />
+                  <span>Reglamento Interno y Convivencia Escolar</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-blue-300" />
+              </button>
+              <button
+                onClick={() => onNavigate('estudiantes')}
+                className="w-full text-left p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-between text-xs sm:text-sm font-semibold cursor-pointer border border-white/10 group"
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="w-4 h-4 text-blue-300 group-hover:scale-110 transition-transform" />
+                  <span>Ficha Médica y Descargables Oficiales</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-blue-300" />
               </button>
             </div>
           </div>
